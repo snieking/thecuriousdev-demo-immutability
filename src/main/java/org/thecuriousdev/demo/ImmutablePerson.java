@@ -27,10 +27,6 @@ public class ImmutablePerson {
         return favoriteDishes != null ? new ArrayList<>(favoriteDishes) : null;
     }
 
-    public void addFavoriteDish(String dish) {
-        favoriteDishes.add(dish);
-    }
-
     public Builder toBuilder() {
         return new Builder(this);
     }

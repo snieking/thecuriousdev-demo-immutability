@@ -97,13 +97,14 @@ public class Application {
                 .withFavoriteDishes(dishes)
                 .build();
 
+        List<String> dishes2 = immutablePerson1.getFavoriteDishes();
+        dishes2.add("Sushi");
+
         ImmutablePerson immutablePerson2 = ImmutablePerson.builder()
                 .withName("Anastasia")
                 .withCity("Stockholm")
-                .withFavoriteDishes(immutablePerson1.getFavoriteDishes())
+                .withFavoriteDishes(dishes2)
                 .build();
-
-        immutablePerson2.addFavoriteDish("Sushi");
 
         for (String dish : immutablePerson1.getFavoriteDishes()) {
             System.out.println(dish);
