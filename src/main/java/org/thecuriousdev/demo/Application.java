@@ -1,5 +1,7 @@
 package org.thecuriousdev.demo;
 
+import org.junit.Assert;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -11,6 +13,19 @@ public class Application {
         immutableCityTest();
         mutableFoodListTest();
         immutableFoodListTest();
+
+        ImmutablePerson person = ImmutablePerson.builder()
+                .withName("Viktor")
+                .withCity("Stockholm")
+                .build();
+
+        ImmutablePerson updatedPerson = person.toBuilder()
+                .withCity("Gothenburg")
+                .build();
+
+        Assert.assertNotEquals(person, updatedPerson);
+        Assert.assertEquals("Stockholm", person.getCity());
+        Assert.assertEquals("Gothenburg", updatedPerson.getCity());
     }
 
     public static void mutableCityTest() {
